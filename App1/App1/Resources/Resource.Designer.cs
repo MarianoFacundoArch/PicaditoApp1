@@ -69,6 +69,12 @@ namespace App1
 			// aapt resource value: 0x7f050003
 			public const int passText = 2131034115;
 			
+			// aapt resource value: 0x7f050006
+			public const int textUsuario = 2131034118;
+			
+			// aapt resource value: 0x7f050005
+			public const int textVUsuario = 2131034117;
+			
 			// aapt resource value: 0x7f050000
 			public const int textView1 = 2131034112;
 			
@@ -90,6 +96,9 @@ namespace App1
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int pantallaPrincipal = 2130903041;
 			
 			static Layout()
 			{
