@@ -22,9 +22,17 @@ namespace App1
 
             // Get our button from the layout resource,
             // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.button1);
+            Button botonLogin = FindViewById<Button>(Resource.Id.button1);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            botonLogin.Click += BotonLogin_Click;
+        }
+
+        private void BotonLogin_Click(object sender, EventArgs e)
+        {
+            EditText mail = FindViewById<EditText>(Resource.Id.mailText);
+            EditText pass = FindViewById<EditText>(Resource.Id.mailText);
+
+            Toast.MakeText(this, mail.Text, ToastLength.Long).Show();
         }
     }
 }
