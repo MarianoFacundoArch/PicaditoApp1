@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace App1
 {
-    public class datosUsuario
+    public class jugador
     {
         private int id_usuario;
         private string nombre;
@@ -16,9 +16,23 @@ namespace App1
         private bool notificaciones_celular;
         private string ip;
         private string imei;
+        private string imagen;
 
-        public datosUsuario(string json)
+        public jugador(int idUsuario, string nombre, string mail, string imagen)
         {
+            id_usuario = idUsuario;
+            this.nombre = nombre;
+            this.mail = mail;
+            this.imagen = imagen;
+        }
+
+        public jugador(string json)
+        {
+
+            if (json.EndsWith("}}"))
+            {
+                json = json.Substring(0, json.Length - 1);
+            }
             JObject o = JObject.Parse(json);
             id_usuario = (int)o["id_usuario"];
 
@@ -51,7 +65,7 @@ namespace App1
             pass = (string)o["pass"];
             apodo = (string)o["apodo"];
             celular = (string)o["celular"];
-
+            imagen = (string)o["imagen"];
             notificaciones_celular = (String)o["notificaciones_celular"] == "1";
 
             ip = (string)o["ip"];
@@ -124,6 +138,12 @@ namespace App1
         {
             get { return imei; }
             set { imei = value; }
+        }
+
+        public string Imagen
+        {
+            get { return imagen; }
+            set { imagen = value; }
         }
     }
 }

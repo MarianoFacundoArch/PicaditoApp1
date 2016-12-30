@@ -55,10 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\buscarJugadoresActivity.cs" />
+    <Compile Include="Activities\crearEquipoActivity.cs" />
+    <Compile Include="Activities\datosEquipoActivity.cs" />
+    <Compile Include="adaptadores\adapterEquipo.cs" />
+    <Compile Include="adaptadores\adapterJugador.cs" />
     <Compile Include="ContenedorComun.cs" />
-    <Compile Include="datosUsuario.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="pantallaPrincipalActivity.cs" />
+    <Compile Include="clasesObjetos\jugador.cs" />
+    <Compile Include="clasesObjetos\equipo.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\pantallaPrincipalActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,6 +74,21 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\pantallaPrincipal.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\rowEquipo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\datosEquipo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\crearEquipo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\rowJugador.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\buscarJugadores.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

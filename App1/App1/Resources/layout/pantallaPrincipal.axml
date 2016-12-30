@@ -15,4 +15,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textUsuario" />
+    <TextView
+        android:text="Equipos"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/equiposText"
+        android:layout_marginTop="20.0dp" />
+    <Button
+        android:text="Crear equipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonCrearEquipo" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listMisEquipos" />
 </LinearLayout>
