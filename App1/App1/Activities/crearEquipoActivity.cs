@@ -73,7 +73,8 @@ namespace App1.Activities
 
 
            equipo  nuevoEquipo = new equipo(ContenedorComun.pedirPost("crearequipo", parametros));
-            ContenedorComun.misEquipos.Add(nuevoEquipo.IdEquipo,nuevoEquipo);
+            
+            ContenedorComun.agregarEquipo(nuevoEquipo,true);
             
 
             Intent nuevaVentana = new Intent(this, typeof(datosEquipoActivity));

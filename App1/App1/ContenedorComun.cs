@@ -31,10 +31,37 @@ namespace App1
         public static Dictionary<int, jugador> jugadoresCache = new Dictionary<int, jugador>();
         public static Dictionary<string, Bitmap> imagenesCache = new Dictionary<string, Bitmap>();
 
+        public static Dictionary<int, equipo> equiposCache = new Dictionary<int, equipo>(); //TODO:Implementar cache de adversarios recientes. NO ESTA EN USO AHORA
 
         //TODO: Limpiar caches cada x tiempo
 
-       
+
+
+        public static equipo dameEquipo(int id_equipo)
+        {
+            if (!ContenedorComun.equiposCache.ContainsKey(id_equipo))
+            {
+                string equipoQuery = ContenedorComun.pedirSitio("dameinfoequipo", "id_equipo=" + id_equipo);
+                if (equipoQuery.StartsWith(ContenedorComun.accionCorrecta))
+                {
+                    equipoQuery = ContenedorComun.removerCabeceraCorrecto(equipoQuery);
+                    equipo tmp = new equipo(equipoQuery);
+
+                    ContenedorComun.equiposCache.Add(tmp.IdEquipo, tmp);
+                }
+
+            }
+
+            return equiposCache[id_equipo];
+        }
+
+        public static string removerCabeceraCorrecto(string query)
+        {
+            query = query.Substring(ContenedorComun.accionCorrecta.Length,
+                            query.Length - ContenedorComun.accionCorrecta.Length);
+            return query;
+        }
+
         public static Bitmap GetImageBitmapFromUrl(string url)
         {
             try
@@ -63,6 +90,15 @@ namespace App1
         }
 
 
+        public static void agregarEquipo(equipo nuevoEquipo, bool propio = false)
+        {
+            if (!misEquipos.ContainsKey(nuevoEquipo.IdEquipo) && propio)
+                ContenedorComun.misEquipos.Add(nuevoEquipo.IdEquipo, nuevoEquipo);
+
+            if (!equiposCache.ContainsKey(nuevoEquipo.IdEquipo))
+                ContenedorComun.equiposCache.Add(nuevoEquipo.IdEquipo, nuevoEquipo);
+        }
+
         public static bool cargarEquipos()
         {
             try
@@ -78,7 +114,7 @@ namespace App1
                      * Creo clase y la cargo en el diccionario
                      * */
 
-                    misEquipos.Add(tmp.IdEquipo, tmp);
+                    agregarEquipo(tmp,true);
 
 
                     //Toast.MakeText(Android.App.Application.Context, tmp.Nombre, ToastLength.Long).Show();

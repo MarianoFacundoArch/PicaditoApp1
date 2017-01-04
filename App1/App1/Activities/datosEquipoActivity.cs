@@ -1,4 +1,6 @@
+using System;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 
@@ -35,8 +37,18 @@ namespace App1.Activities
             TextView equipoNombre = FindViewById<TextView>(Resource.Id.textNombreEquipo);
             equipoNombre.Text = equipoActual.Nombre;
 
+            Button verPartidos = FindViewById<Button>(Resource.Id.buttonVerPartidos);
+            verPartidos.Click += VerPartidosOnClick;
 
 
+
+        }
+
+        private void VerPartidosOnClick(object sender, EventArgs eventArgs)
+        {
+            Intent verPartidosIntent = new Intent(this, typeof(partidosEquipoActivity));
+            verPartidosIntent.PutExtra("id", equipoId);
+            StartActivity(verPartidosIntent);
         }
     }
 }

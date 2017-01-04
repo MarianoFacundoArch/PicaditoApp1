@@ -93,8 +93,7 @@ namespace App1.Activities
                 editor.Commit();
 
 
-                respuesta = respuesta.Substring(ContenedorComun.accionCorrecta.Length,
-                    respuesta.Length - ContenedorComun.accionCorrecta.Length);
+                respuesta = ContenedorComun.removerCabeceraCorrecto(respuesta);
 
                 var pantallaPrincial = new Intent(this, typeof(pantallaPrincipalActivity));
                 pantallaPrincial.PutExtra("rta", respuesta);

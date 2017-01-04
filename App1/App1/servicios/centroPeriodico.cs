@@ -66,8 +66,7 @@ namespace App1.Activities
 
             if (notificaciones.StartsWith(ContenedorComun.accionCorrecta))
             {
-                notificaciones = notificaciones.Substring(ContenedorComun.accionCorrecta.Length,
-                            notificaciones.Length - ContenedorComun.accionCorrecta.Length);
+                notificaciones = ContenedorComun.removerCabeceraCorrecto(notificaciones);
 
                 foreach (string equipoActual in ContenedorComun.parseJsonList(notificaciones))
                 {

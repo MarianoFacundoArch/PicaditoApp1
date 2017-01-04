@@ -66,8 +66,8 @@ namespace App1
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050018
-			public const int button1 = 2131034136;
+			// aapt resource value: 0x7f050019
+			public const int button1 = 2131034137;
 			
 			// aapt resource value: 0x7f050002
 			public const int buttonBuscar = 2131034114;
@@ -80,6 +80,9 @@ namespace App1
 			
 			// aapt resource value: 0x7f050008
 			public const int buttonInvitarJugadores = 2131034120;
+			
+			// aapt resource value: 0x7f050016
+			public const int buttonVerPartidos = 2131034134;
 			
 			// aapt resource value: 0x7f050001
 			public const int editTextBuscarJugador = 2131034113;
@@ -99,35 +102,41 @@ namespace App1
 			// aapt resource value: 0x7f050011
 			public const int editTextRepetirPass = 2131034129;
 			
-			// aapt resource value: 0x7f05001b
-			public const int equiposText = 2131034139;
+			// aapt resource value: 0x7f05001c
+			public const int equiposText = 2131034140;
 			
 			// aapt resource value: 0x7f050013
 			public const int imageEquipo = 2131034131;
 			
-			// aapt resource value: 0x7f050020
-			public const int imageJugador = 2131034144;
+			// aapt resource value: 0x7f050023
+			public const int imageJugador = 2131034147;
+			
+			// aapt resource value: 0x7f050027
+			public const int linearLayout = 2131034151;
 			
 			// aapt resource value: 0x7f050007
 			public const int linearLayout1 = 2131034119;
 			
-			// aapt resource value: 0x7f05001e
-			public const int linearLayout2 = 2131034142;
+			// aapt resource value: 0x7f050021
+			public const int linearLayout2 = 2131034145;
 			
 			// aapt resource value: 0x7f050003
 			public const int listJugadores = 2131034115;
 			
-			// aapt resource value: 0x7f05001c
-			public const int listMisEquipos = 2131034140;
+			// aapt resource value: 0x7f05001d
+			public const int listMisEquipos = 2131034141;
 			
-			// aapt resource value: 0x7f050016
-			public const int mailText = 2131034134;
+			// aapt resource value: 0x7f05001f
+			public const int listPartidos = 2131034143;
 			
 			// aapt resource value: 0x7f050017
-			public const int passText = 2131034135;
+			public const int mailText = 2131034135;
 			
-			// aapt resource value: 0x7f05001d
-			public const int relativeLayout1 = 2131034141;
+			// aapt resource value: 0x7f050018
+			public const int passText = 2131034136;
+			
+			// aapt resource value: 0x7f050020
+			public const int relativeLayout1 = 2131034144;
 			
 			// aapt resource value: 0x7f050000
 			public const int textBusqueda = 2131034112;
@@ -135,26 +144,41 @@ namespace App1
 			// aapt resource value: 0x7f050015
 			public const int textDatosEquipo = 2131034133;
 			
-			// aapt resource value: 0x7f050023
-			public const int textDatosJugador = 2131034147;
+			// aapt resource value: 0x7f050026
+			public const int textDatosJugador = 2131034150;
 			
-			// aapt resource value: 0x7f05001f
-			public const int textIdEquipo = 2131034143;
+			// aapt resource value: 0x7f05002a
+			public const int textFecha = 2131034154;
 			
 			// aapt resource value: 0x7f050022
-			public const int textIdJugador = 2131034146;
+			public const int textIdEquipo = 2131034146;
+			
+			// aapt resource value: 0x7f050025
+			public const int textIdJugador = 2131034149;
 			
 			// aapt resource value: 0x7f050014
 			public const int textNombreEquipo = 2131034132;
 			
-			// aapt resource value: 0x7f050021
-			public const int textNombreJugador = 2131034145;
+			// aapt resource value: 0x7f050028
+			public const int textNombreEquipo1 = 2131034152;
+			
+			// aapt resource value: 0x7f050029
+			public const int textNombreEquipo2 = 2131034153;
+			
+			// aapt resource value: 0x7f050024
+			public const int textNombreJugador = 2131034148;
+			
+			// aapt resource value: 0x7f05001e
+			public const int textPartidos = 2131034142;
+			
+			// aapt resource value: 0x7f05002b
+			public const int textPredio = 2131034155;
+			
+			// aapt resource value: 0x7f05001b
+			public const int textUsuario = 2131034139;
 			
 			// aapt resource value: 0x7f05001a
-			public const int textUsuario = 2131034138;
-			
-			// aapt resource value: 0x7f050019
-			public const int textVUsuario = 2131034137;
+			public const int textVUsuario = 2131034138;
 			
 			// aapt resource value: 0x7f05000e
 			public const int textView1 = 2131034126;
@@ -206,10 +230,16 @@ namespace App1
 			public const int pantallaPrincipal = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int rowEquipo = 2130903046;
+			public const int partidosEquipo = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int rowJugador = 2130903047;
+			public const int rowEquipo = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int rowJugador = 2130903048;
+			
+			// aapt resource value: 0x7f030009
+			public const int rowPartido = 2130903049;
 			
 			static Layout()
 			{

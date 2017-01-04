@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\buscarJugadoresActivity.cs" />
+    <Compile Include="Activities\partidosEquipoActivity.cs" />
+    <Compile Include="adaptadores\adapterPartido.cs" />
+    <Compile Include="clasesObjetos\partido.cs" />
     <Compile Include="servicios\centroPeriodico.cs" />
     <Compile Include="Activities\crearEquipoActivity.cs" />
     <Compile Include="Activities\crearUsuarioActivity.cs" />
@@ -95,6 +98,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\crearUsuario.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\partidosEquipo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\rowPartido.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
