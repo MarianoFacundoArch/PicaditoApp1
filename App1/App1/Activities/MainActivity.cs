@@ -3,15 +3,14 @@ using System.IO;
 using System.Net;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Android.Preferences;
+using Android.Widget;
+using App1.Activities;
 
 namespace App1
 {
-    [Activity(Label = "App1", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Picadito", NoHistory = true, MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
 
@@ -27,10 +26,19 @@ namespace App1
             Button botonLogin = FindViewById<Button>(Resource.Id.button1);
             EditText mail = FindViewById<EditText>(Resource.Id.mailText);
             EditText pass = FindViewById<EditText>(Resource.Id.passText);
-
+            Button botonCrear = FindViewById<Button>(Resource.Id.buttonCrearUsuario);
+            botonCrear.Click += BotonCrearOnClick;
             botonLogin.Click += BotonLogin_Click;
 
-
+            if (ContenedorComun.datos != null)
+            {
+                var pantallaPrincial = new Intent(this, typeof(pantallaPrincipalActivity));
+                pantallaPrincial.PutExtra("yacargado", true);
+                pantallaPrincial.SetFlags(ActivityFlags.NewTask | ActivityFlags.ClearTop |
+                                          ActivityFlags.SingleTop);
+                StartActivity(pantallaPrincial);
+                Finish();
+            }
 
             /*
              * Cargo datos guardados
@@ -48,6 +56,13 @@ namespace App1
 
 
 
+        }
+
+        private void BotonCrearOnClick(object sender, EventArgs eventArgs)
+        {
+            Intent crearIntent = new Intent(this, typeof(crearUsuarioActivity));
+            StartActivity(crearIntent);
+            Finish();
         }
 
         private void BotonLogin_Click(object sender, EventArgs e)
@@ -72,7 +87,7 @@ namespace App1
                 else
                 {
 
-                    if (respuesta.StartsWith(ContenedorComun.loginCorrectoInicio))
+                    if (respuesta.StartsWith(ContenedorComun.accionCorrecta))
                     {
 
 
@@ -87,12 +102,12 @@ namespace App1
                         editor.Commit();
 
 
-                        respuesta = respuesta.Substring(ContenedorComun.loginCorrectoInicio.Length,
-                            respuesta.Length - ContenedorComun.loginCorrectoInicio.Length);
+                        respuesta = respuesta.Substring(ContenedorComun.accionCorrecta.Length,
+                            respuesta.Length - ContenedorComun.accionCorrecta.Length);
 
                         var pantallaPrincial = new Intent(this, typeof(pantallaPrincipalActivity));
                         pantallaPrincial.PutExtra("rta", respuesta);
-
+                        pantallaPrincial.PutExtra("yacargado", false);
                         pantallaPrincial.SetFlags(ActivityFlags.NewTask | ActivityFlags.ClearTop |
                                                   ActivityFlags.SingleTop);
                         StartActivity(pantallaPrincial);

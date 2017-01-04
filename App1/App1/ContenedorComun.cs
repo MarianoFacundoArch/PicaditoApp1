@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,22 +13,28 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-
 namespace App1
 {
     class ContenedorComun
     {
         public static jugador datos;
 
-        public static string urlsite = "http://192.168.1.107/picadito/PicaditoWeb/";
-        public static string loginCorrectoInicio = "correcto:";
+        public static string urlsite = "http://192.168.1.109/picadito/PicaditoWeb/";
+        public static string accionCorrecta = "correcto:";
         public static string loginIncorrecto = "invalidlogin";
-
-        public static Dictionary<string, Bitmap> imagenesCargadas = new Dictionary<string, Bitmap>();
+        public static string tituloAplicacion = "Picadito";
         public static Dictionary<int, equipo> misEquipos = new Dictionary<int, equipo>();
 
+        /*
+         * Elementos de cache re utilizables
+         * */
+        public static Dictionary<int, jugador> jugadoresCache = new Dictionary<int, jugador>();
+        public static Dictionary<string, Bitmap> imagenesCache = new Dictionary<string, Bitmap>();
 
 
+        //TODO: Limpiar caches cada x tiempo
+
+       
         public static Bitmap GetImageBitmapFromUrl(string url)
         {
             try
@@ -121,6 +128,51 @@ namespace App1
             }
         }
 
+
+        public static string pedirPost(string accion, NameValueCollection parametros, bool incluirLogin = true)
+        {
+            try
+            {
+
+                using (WebClient client = new WebClient())
+                {
+                    byte[] response;
+                    if (incluirLogin)
+                    {
+                        response =
+                   client.UploadValues(urlsite + "backend.php?mail=" + datos.Mail + "&pass=" + datos.Pass + "&consulta=" + accion, parametros);
+                    }
+                    else
+                    {
+                        response =
+                   client.UploadValues(urlsite + "backend.php?consulta=" + accion, parametros);
+                    }
+
+                    string result = System.Text.Encoding.UTF8.GetString(response);
+                    return result;
+                }
+
+            }
+            catch (Exception e)
+            {
+                return "error:" + e;
+
+            }
+        }
+
+
+        public static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
 
         public static string pedirSitio(string accion)

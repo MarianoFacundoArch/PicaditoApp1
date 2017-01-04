@@ -26,8 +26,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/passText" />
     <Button
-        android:text="Button"
+        android:text="Entrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button1" />
+    <Button
+        android:text="Crear Usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonCrearUsuario" />
 </LinearLayout>

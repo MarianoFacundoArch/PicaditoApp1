@@ -11,7 +11,7 @@
         p1:layout_height="wrap_content"
         p1:id="@+id/linearLayout1">
         <ImageView
-            p1:src="@android:drawable/ic_menu_gallery"
+            p1:src="@android:drawable/btn_star"
             p1:layout_width="wrap_content"
             p1:layout_height="match_parent"
             p1:id="@+id/imageJugador" />

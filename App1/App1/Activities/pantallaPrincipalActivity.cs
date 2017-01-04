@@ -1,13 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using App1.Activities;
 
@@ -21,22 +16,40 @@ namespace App1
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.pantallaPrincipal);
+
+            bool yaCargado = Intent.GetBooleanExtra("yacargado", false);
+
             string datosRecibidos = Intent.GetStringExtra("rta");
 
 
-            /*
-             * Cargo datos del jugador
-             * */
-            ContenedorComun.datos = new jugador(datosRecibidos);
+            if (!yaCargado)
+            {
+
+                /*
+                 * Inicializo notificaciones
+                 * 
+                 * TODO: Que inicie el servicio cuando se prende telefono
+                 * */
+                StartService(new Intent(this, typeof(centroPeriodico)));
+
+
+
+                /*
+                 * Cargo datos del jugador
+                 * */
+                ContenedorComun.datos = new jugador(datosRecibidos);
+                
+
+                /*
+                 * Cargo los equipos del jugador
+                 * */
+                ContenedorComun.cargarEquipos();
+
+            }
+
+
             TextView textUsuario = FindViewById<TextView>(Resource.Id.textUsuario);
             textUsuario.Text = ContenedorComun.datos.Mail;
-
-            /*
-             * Cargo los equipos del jugador
-             * */
-            ContenedorComun.cargarEquipos();
-
-
             /*
              * Hora de la magia del listview
              * */
